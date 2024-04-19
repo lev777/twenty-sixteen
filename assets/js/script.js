@@ -31,7 +31,6 @@ jQuery( document ).ready( function( $ ) {
 				if ( $.isEmptyObject( response ) ) {
 					$( '#fep-result ul' ).append('<li>' + fep_script.no_match + '</li>');
 				} else {
-					console.log(response);
 					$.each( response, function(i, v) {
 						$( '#fep-result ul' ).append('<li><a href="#" data-user_nicename="' + v.nicename + '" data-user_name="' + v.name + '">' + v.name + '</a></li>');
 					});
