@@ -24,8 +24,8 @@ wp_register_script(
 /*
  * Override category dropdown text 
  */
-function ChangeSelectTitle($cat_args){
-$cat_args['show_option_none'] = __('Select Artist');
-return $cat_args;
+function change_dropdown_text( $cat_args ) {
+    $cat_args['show_option_none'] = 'Select Artist';
+    return $cat_args;
 }
-add_filter('widget_categories_dropdown_args', 'ChangeSelectTitle');
+add_filter( 'widget_categories_dropdown_args', 'change_dropdown_text' );
