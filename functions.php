@@ -22,10 +22,25 @@ wp_register_script(
 );
 
 /*
- * Override category dropdown text 
+ * Override author display for comments widget 
  */
 function change_dropdown_text( $cat_args ) {
     $cat_args['show_option_none'] = 'Select Artist';
     return $cat_args;
 }
 add_filter( 'widget_categories_dropdown_args', 'change_dropdown_text' );
+
+function customize_recent_comments_widget($args) {
+    $args['callback'] = 'custom_recent_comments_output';
+    return $args;
+}
+add_filter('widget_comments_args', 'customize_recent_comments_widget');
+
+function custom_recent_comments_output($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    ?>
+    <li id="comment-<?php comment_ID(); ?>">
+        <div class="comment-content"><?php comment_text(); ?></div>
+    </li>
+    <?php
+}
