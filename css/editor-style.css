@@ -1,0 +1,11 @@
+body#tinymce.wp-editor { 
+    max-width: none; 
+}
+
+body {
+    max-width: none; 
+}
+
+body.post-type-page {
+	max-width: none;
+}
