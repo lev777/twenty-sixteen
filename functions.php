@@ -19,6 +19,7 @@ wp_register_script(
   array('jquery'),
   '1.0.0', 
   true  
+);
 
 function change_dropdown_text( $cat_args ) {
     $cat_args['show_option_none'] = 'Select Artist';
