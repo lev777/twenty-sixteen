@@ -20,14 +20,6 @@ wp_register_script(
   '1.0.0', 
   true  
 
-add_filter( 'post_thumbnail_html', 'my_post_image_html', 10 );
-function my_post_image_html( $html ) {
-  if ( is_front_page() ) {
-    $html = str_replace( 'full', 'medium', $html );
-  }
-  return $html;
-}
-
 function change_dropdown_text( $cat_args ) {
     $cat_args['show_option_none'] = 'Select Artist';
     return $cat_args;
