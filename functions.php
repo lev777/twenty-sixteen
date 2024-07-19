@@ -41,3 +41,11 @@ function custom_recent_comments_output($comment, $args, $depth) {
     </li>
     <?php
 }
+
+add_filter( 'post_thumbnail_html', 'my_post_image_html', 10 );
+function my_post_image_html( $html ) {
+  if ( is_front_page() ) {
+    $html = str_replace( 'full', 'medium', $html );
+  }
+  return $html;
+}
